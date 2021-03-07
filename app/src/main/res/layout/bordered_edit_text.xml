@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/borderedEtView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/EditTextBordered"
+        android:id="@+id/etBorderedLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etBordered"
+            android:textColor="@color/text_primary_color"
+            android:background="@null"
+            style="@style/HeadingTextMediumSizeRegularFont"
+            android:layout_margin="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        style="@style/HeadingTextMediumSizeRegularFont"
+        android:id="@+id/rightCtaTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text=""
+        android:drawablePadding="3sp"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/etBorderedLayout"
+        app:layout_constraintBottom_toBottomOf="@id/etBorderedLayout"
+        />
+
+    <TextView
+        android:id="@+id/tvBorderedError"
+        style="@style/HeadingTextMediumSizeRegularFont"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/red_500"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etBorderedLayout"
+        android:visibility="visible"
+        android:layout_height="20dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

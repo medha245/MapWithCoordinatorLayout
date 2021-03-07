@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="220dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="90dp"
+                android:background="@color/blueColor" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/startGuide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/margin_small" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/endGuide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/margin_small" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/bottomGuide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_end="@dimen/margin_small" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/topGuide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="@dimen/margin_small" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/mapIcon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@id/startGuide"
+                    app:layout_constraintTop_toTopOf="@id/topGuide"
+                    app:srcCompat="@drawable/ic_address_gradient" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/areaFromMap"
+                    style="@style/HeadingTextMediumSizeRegularFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@id/mapIcon"
+                    app:layout_constraintStart_toEndOf="@id/mapIcon"
+                    app:layout_constraintTop_toTopOf="@id/mapIcon"
+                    tools:text="Nehru Place" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/fullAddress"
+                    style="@style/HeadingTextMediumSizeRegularFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:textColor="#5C5E61"
+                    app:layout_constraintEnd_toEndOf="@id/endGuide"
+                    app:layout_constraintStart_toStartOf="@id/startGuide"
+                    app:layout_constraintTop_toBottomOf="@id/mapIcon"
+                    tools:text="374, Rajinder nagar , Newdelhi - 110060, India" />
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/startGuideInner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/margin_small" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/endGuideInner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/margin_small" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/addressStatusLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:background="@drawable/et_border_bg"
+                    android:padding="@dimen/margin_small"
+                    android:paddingTop="@dimen/margin_small"
+                    app:layout_constraintEnd_toEndOf="@id/endGuideInner"
+                    app:layout_constraintStart_toStartOf="@id/startGuideInner"
+                    app:layout_constraintTop_toBottomOf="@id/fullAddress">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/pickupAddressStatus"
+                        style="@style/HeadingTextMediumSizeRegularFont"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#747474"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:paddingBottom="@dimen/margin_small"
+                        android:text="Address Status ( Active) "
+                        app:layout_constraintEnd_toStartOf="@id/switchPickupAddress"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        style="@style/Widget.App.Switch"
+                        android:id="@+id/switchPickupAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:paddingBottom="@dimen/margin_small"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/viewSeperator"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/viewSeperator"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:background="@color/imageBackground"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/pickupAddressStatus" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/setPrimaryText"
+                        style="@style/HeadingTextMediumSizeRegularFont"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#747474"
+                        android:text="Set this address as Primary"
+                        app:layout_constraintBottom_toBottomOf="@id/primaryCheckBox"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/primaryCheckBox" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/primaryCheckBox"
+                        style="@style/Widget.App.CheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_smallest"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/viewSeperator" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/headingPickup"
+                    style="@style/HeadingTextMediumSizeRegularFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="Pick Up Address"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="@id/endGuide"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@id/startGuide"
+                    app:layout_constraintTop_toBottomOf="@id/addressStatusLayout" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/pickupAddressLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/et_border_bg"
+                    android:paddingTop="@dimen/margin_medium"
+                    android:paddingBottom="@dimen/margin_medium"
+                    android:paddingStart="@dimen/margin_small"
+                    android:paddingEnd="@dimen/margin_small"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    app:layout_constraintEnd_toEndOf="@id/endGuideInner"
+                    app:layout_constraintStart_toStartOf="@id/startGuideInner"
+                    app:layout_constraintTop_toBottomOf="@id/headingPickup">
+
+                    <com.medha.mapwithcoordinatorlayout.BorderedEditTextWithHeader
+                        android:id="@+id/addressNicknameEt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        app:etHint="Address Nick Name"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <com.medha.mapwithcoordinatorlayout.BorderedEditTextWithHeader
+                        android:id="@+id/contactNameEt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:inputType="textPersonName"
+                        app:etHint="Contact Name"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/addressNicknameEt" />
+
+                    <com.medha.mapwithcoordinatorlayout.BorderedEditTextWithHeader
+                        android:id="@+id/phoneNumberEt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:inputType="phone"
+                        app:etHint="Phone Number"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/contactNameEt" />
+
+                    <com.medha.mapwithcoordinatorlayout.BorderedEditTextWithHeader
+                        android:id="@+id/emailIdEt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:inputType="textEmailAddress"
+                        app:etHint="Email Id"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/phoneNumberEt" />
+
+                    <com.medha.mapwithcoordinatorlayout.BorderedEditTextWithHeader
+                        android:id="@+id/houseName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:inputType="text"
+                        app:etHint="House Number,Building Name,etc."
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/emailIdEt" />
+
+                    <com.medha.mapwithcoordinatorlayout.BorderedEditTextWithHeader
+                        android:id="@+id/localityName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:inputType="text"
+                        app:etHint="Locality / Street Name (Optional)"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/houseName" />
+
+                    <com.medha.mapwithcoordinatorlayout.BorderedEditTextWithHeader
+                        android:id="@+id/landmarkName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:inputType="text"
+                        app:etHint="Landmark (Optional)"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/localityName" />
+
+                    <com.medha.mapwithcoordinatorlayout.BorderedEditTextWithHeader
+                        android:id="@+id/pincodeEt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        app:etHint="Pincode"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/landmarkName" />
+
+                    <com.medha.mapwithcoordinatorlayout.BorderedEditTextWithHeader
+                        android:id="@+id/cityEt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:inputType="textPersonName"
+                        app:etHint="City"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/pincodeEt" />
+
+                    <com.medha.mapwithcoordinatorlayout.BorderedEditTextWithHeader
+                        android:id="@+id/stateEt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:inputType="textPersonName"
+                        app:etHint="State"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cityEt" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/savePickupAddress"
+                    style="@style/CTAButtonThemeMediumText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginTop="30dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:text="Save Address"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pickupAddressLayout" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarPickupAddress"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/blueColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="?attr/actionBarSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/mapFragmentPickup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_anchor="@id/bottomSheetLayout"
+            android:layout_marginBottom="220dp"
+            >
+        </androidx.fragment.app.FragmentContainerView>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mapPointerIcon"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="250dp"
+            app:srcCompat="@drawable/map_pointer"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mapPointerText"
+            style="@style/HeadingTextMediumSizeRegularFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:visibility="gone"
+            android:layout_gravity="top|center_horizontal"
+            android:textColor="@color/white"
+            app:layout_anchor="@id/mapPointerIcon"/>
+
+
+        <include
+            android:id="@+id/bottomSheetLayout"
+            layout="@layout/bottom_sheet_add_address"
+            />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

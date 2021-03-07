@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MapWithCoordinatorLayout</string>
+    <string name="title_activity_maps">Add Address</string>
+    <string name="location_permission_denied">LOCATION PERMISSION DENIED</string>
+    <string name="location_permission_invoked">LOCATION PERMISSION INVOKED</string>
+    <string name="permission_denied_address_location">You have not provided location permission to automatically fetch your location.</string>
+    <string name="permission_invoked_address_location">You have not provided location permission to automatically fetch your location.Please go to Settings to enable Location</string>
+</resources>
